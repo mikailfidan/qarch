@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<header class="major container medium"> 
+    {{site_info.introduction_text}}
+ </header>
+
+
+<div class="box alt container">
+
+    {% for post in post_list %}
+					<section class="feature left">
+						<a href="{% url 'detail' post.id %}" class="image icon ">
+						
+						
+						<img src="/media/{{ post.photo }}" alt="" /></a>
+						<div class="content">
+							<h3>{{ post.title }} </h3>
+							<p> <a style="color:#6e6e6e; border:none;" href="{% url 'detail' post.id %}"> {{ post.content | truncatechars:"180" }} </a> </p>
+						</div>
+					</section>
+    {% endfor %}      
+
+</div>                    
+
+
+
+
+{% endblock  %}
