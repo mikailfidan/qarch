@@ -23,12 +23,14 @@ class Information(models.Model):
     motto = models.TextField(max_length=1000, blank=True, null=True)
     introduction_text = models.TextField(max_length = 1000, blank=True, null=True)
     
-   
-
-
     class Meta:
         verbose_name="Site Bilgisi"
         verbose_name_plural = "Site Bilgileri"
    
     def __str__(self):
         return self.title    
+
+class Message(models.Model):
+    name = models.CharField(max_length=100, blank=True, null=True)
+    email = models.EmailField(max_length=254)
+    message = models.TextField(max_length=1000, blank=True, null=True)

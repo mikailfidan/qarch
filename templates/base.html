@@ -58,13 +58,18 @@
 								</ul>
 							</div>
 						</div>
-					</form> {% endcomment %}
+					</form> 
+{% endcomment %}
 
-					<form method="GET" action="/">		
+					<form method="POST" action="{% url 'sendmessage' %}">
+					{% csrf_token %}		
 						{{ form.as_p }}
 						<input type="submit" value="Send Message" />
 					</form>	
 
+						{% for msg in  message_list %}
+						 {{ msg.name }}
+						{% endfor %}
 					<ul class="icons">
 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -79,6 +84,7 @@
 
 				</div>
 			</div>
+
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
